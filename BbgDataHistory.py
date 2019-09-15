@@ -32,7 +32,7 @@ class BbgDataHistory(BbgRefDataService):
         self.appendRequestOverrides(request = self.request, overrides = self.overrides)
         self.appendHistoricalOverrides(request = self.request, startDate = self.startDate, endDate = self.endDate, perAdjustment = self.perAdjustment, perSelection = self.perSelection)
         self.cid = self.session.sendRequest(self.request)
-        bbgRefData = pd.DataFrame()
+        self.bbgRefData = pd.DataFrame()
 
         for response in self.parseResponse(self.cid):
             self.bbgRefData = self.bbgRefData.append(self.refDataContentToDf(response))
@@ -40,7 +40,7 @@ class BbgDataHistory(BbgRefDataService):
         bbgRefData = bbgRefData.set_index('Security', append = True).pivot(columns='Field').unstack('Security')
         bbgRefData.columns = bbgRefData.columns.droplevel(0).swaplevel()
         
-        return bbgRefData
+        return self.bbgRefData
 
     def appendHistoricalOverrides(self, request, startDate, endDate, perAdjustment, perSelection):
         request.set("periodicityAdjustment", perAdjustment)
