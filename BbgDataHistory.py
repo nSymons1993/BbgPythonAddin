@@ -28,7 +28,7 @@ class BbgDataHistory(BbgRefDataService):
 
     def constructDf(self):
         BbgRefDataService.__init__(self)
-        self.request = self.createRequest(securities = securities, fields = fields, requestType = "HistoricalDataRequest")
+        self.request = self.createRequest(securities = self.securities, fields = self.fields, requestType = "HistoricalDataRequest")
         self.appendRequestOverrides(request = self.request, overrides = self.overrides)
         self.appendHistoricalOverrides(request = self.request, startDate = self.startDate, endDate = self.endDate, perAdjustment = self.perAdjustment, perSelection = self.perSelection)
         cid = self.session.sendRequest(self.request)
@@ -36,10 +36,13 @@ class BbgDataHistory(BbgRefDataService):
 
         for response in self.parseResponse(cid):
             bbgRefData = bbgRefData.append(self.refDataContentToDf(response))
-            
+        
+        bbgRefData = bbgRefData.set_index('Security', append = True).pivot(columns='Field').unstack('Security')
+        bbgRefData.columns = bbgRefData.columns.droplevel(0).swaplevel()
+        
         return bbgRefData
 
-    def appendHistoricalOverrides(self, request, perAdjustment, perSelection):
+    def appendHistoricalOverrides(self, request, startDate, endDate, perAdjustment, perSelection):
         request.set("periodicityAdjustment", perAdjustment)
         request.set("periodicitySelection", perSelection)
         request.set("startDate", startDate)
@@ -53,10 +56,7 @@ class BbgDataHistory(BbgRefDataService):
         returnDf = pd.DataFrame()
         for snapShot in historicalData:
             fieldData = snapShot['fieldData']
-            returnDf = returnDf.append(pd.DataFrame(fieldData.items(), columns=['Fields', 'Values'], index = [fieldData['date'] for i in range(0, len(fieldData))])[1:])
-        returnDf.index.columns = ''
-        returnDf['securities'] = securityData['security']
-        returnDf = returnDf.set_index('securities', append = True).pivot(columns='Fields')
-        returnDf.columns = returnDf.columns.droplevel(0)
-        returnDf.index.names = ['Date', 'BB_TICKER']
+            returnDf = returnDf.append(pd.DataFrame(fieldData.items(), columns=['Field', 'Values'], index = [fieldData['date'] for i in range(0, len(fieldData))])[1:])
+        returnDf.index.names = ['Date']
+        returnDf['Security'] = securityData['security']
         return returnDf

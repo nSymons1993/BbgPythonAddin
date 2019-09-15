@@ -1,90 +1,700 @@
-2019-09-15 15:25:55,137:BbgLogger:Trying to connect to localhost:8194
-2019-09-15 15:25:55,174:BbgLogger:Initializing connection to BLP API: Starting BLP Session
-2019-09-15 15:25:55,188:BbgLogger:Successfully started blpapi session with SESSION_STATUS response of type SessionConnectionUp
-2019-09-15 15:25:55,188:BbgLogger:'SESSION_STATUS' response returned with content:
+2019-09-15 17:34:45,265:BbgLogger:Trying to connect to localhost:8194
+2019-09-15 17:34:45,486:BbgLogger:Initializing connection to BLP API: Starting BLP Session
+2019-09-15 17:34:45,544:BbgLogger:Successfully started blpapi session with SESSION_STATUS response of type SessionConnectionUp
+2019-09-15 17:34:45,544:BbgLogger:'SESSION_STATUS' response returned with content:
 SessionConnectionUp
-2019-09-15 15:25:55,188:BbgLogger:Initializing connection to BLP API: Opening BLP Service
-2019-09-15 15:25:56,069:BbgLogger:Successfully opened //blp/refdata service with SESSION_STATUS response of type SessionStarted
-2019-09-15 15:25:56,070:BbgLogger:'SESSION_STATUS' response returned with content:
+2019-09-15 17:34:45,545:BbgLogger:Initializing connection to BLP API: Opening BLP Service
+2019-09-15 17:34:46,345:BbgLogger:Successfully opened //blp/refdata service with SESSION_STATUS response of type SessionStarted
+2019-09-15 17:34:46,345:BbgLogger:'SESSION_STATUS' response returned with content:
 SessionStarted
-2019-09-15 15:25:56,070:BbgLogger:Creating refdata request...
-2019-09-15 15:25:56,502:BbgLogger:ReferenceDataResponse = {
-    securityData[] = {
-        securityData = {
-            security = "MSFT US Equity"
-            eidData[] = {
-            }
-            fieldExceptions[] = {
-            }
-            sequenceNumber = 0
-            fieldData = {
-                PX_LAST = 137.320000
-                PX_HIGH = 138.060000
-                PX_LOW = 136.570000
-            }
+2019-09-15 17:34:46,345:BbgLogger:Creating refdata request...
+2019-09-15 17:34:46,766:BbgLogger:HistoricalDataResponse = {
+    securityData = {
+        security = "YM1 Comdty"
+        eidData[] = {
         }
-        securityData = {
-            security = "IBM US Equity"
-            eidData[] = {
-            }
-            fieldExceptions[] = {
-            }
-            sequenceNumber = 1
-            fieldData = {
-                PX_LAST = 143.670000
-                PX_HIGH = 144.650000
-                PX_LOW = 143.260000
-            }
+        sequenceNumber = 0
+        fieldExceptions[] = {
         }
-        securityData = {
-            security = "AMP AU Equity"
-            eidData[] = {
-            }
-            fieldExceptions[] = {
-            }
-            sequenceNumber = 2
+        fieldData[] = {
             fieldData = {
-                PX_LAST = 1.860000
-                PX_HIGH = 1.860000
-                PX_LOW = 1.815000
+                date = 2016-01-31
+                FUT_CUR_GEN_TICKER = "YMH16"
+                PX_LAST = 98.130000
+            }
+            fieldData = {
+                date = 2016-02-29
+                FUT_CUR_GEN_TICKER = "YMH16"
+                PX_LAST = 98.270000
+            }
+            fieldData = {
+                date = 2016-03-31
+                FUT_CUR_GEN_TICKER = "YMM16"
+                PX_LAST = 98.120000
+            }
+            fieldData = {
+                date = 2016-04-30
+                FUT_CUR_GEN_TICKER = "YMM16"
+                PX_LAST = 98.150000
+            }
+            fieldData = {
+                date = 2016-05-31
+                FUT_CUR_GEN_TICKER = "YMM16"
+                PX_LAST = 98.360000
+            }
+            fieldData = {
+                date = 2016-06-30
+                FUT_CUR_GEN_TICKER = "YMU16"
+                PX_LAST = 98.510000
+            }
+            fieldData = {
+                date = 2016-07-31
+                FUT_CUR_GEN_TICKER = "YMU16"
+                PX_LAST = 98.590000
+            }
+            fieldData = {
+                date = 2016-08-31
+                FUT_CUR_GEN_TICKER = "YMU16"
+                PX_LAST = 98.620000
+            }
+            fieldData = {
+                date = 2016-09-30
+                FUT_CUR_GEN_TICKER = "YMZ16"
+                PX_LAST = 98.550000
+            }
+            fieldData = {
+                date = 2016-10-31
+                FUT_CUR_GEN_TICKER = "YMZ16"
+                PX_LAST = 98.310000
+            }
+            fieldData = {
+                date = 2016-11-30
+                FUT_CUR_GEN_TICKER = "YMZ16"
+                PX_LAST = 98.090000
+            }
+            fieldData = {
+                date = 2016-12-31
+                FUT_CUR_GEN_TICKER = "YMH17"
+                PX_LAST = 97.960000
+            }
+            fieldData = {
+                date = 2017-01-31
+                FUT_CUR_GEN_TICKER = "YMH17"
+                PX_LAST = 98.070000
+            }
+            fieldData = {
+                date = 2017-02-28
+                FUT_CUR_GEN_TICKER = "YMH17"
+                PX_LAST = 98.010000
+            }
+            fieldData = {
+                date = 2017-03-31
+                FUT_CUR_GEN_TICKER = "YMM17"
+                PX_LAST = 98.050000
+            }
+            fieldData = {
+                date = 2017-04-30
+                FUT_CUR_GEN_TICKER = "YMM17"
+                PX_LAST = 98.170000
+            }
+            fieldData = {
+                date = 2017-05-31
+                FUT_CUR_GEN_TICKER = "YMM17"
+                PX_LAST = 98.330000
+            }
+            fieldData = {
+                date = 2017-06-30
+                FUT_CUR_GEN_TICKER = "YMU17"
+                PX_LAST = 98.020000
+            }
+            fieldData = {
+                date = 2017-07-31
+                FUT_CUR_GEN_TICKER = "YMU17"
+                PX_LAST = 98.050000
+            }
+            fieldData = {
+                date = 2017-08-31
+                FUT_CUR_GEN_TICKER = "YMU17"
+                PX_LAST = 97.970000
+            }
+            fieldData = {
+                date = 2017-09-30
+                FUT_CUR_GEN_TICKER = "YMZ17"
+                PX_LAST = 97.820000
+            }
+            fieldData = {
+                date = 2017-10-31
+                FUT_CUR_GEN_TICKER = "YMZ17"
+                PX_LAST = 98.000000
+            }
+            fieldData = {
+                date = 2017-11-30
+                FUT_CUR_GEN_TICKER = "YMZ17"
+                PX_LAST = 98.080000
+            }
+            fieldData = {
+                date = 2017-12-31
+                FUT_CUR_GEN_TICKER = "YMH18"
+                PX_LAST = 97.840000
+            }
+            fieldData = {
+                date = 2018-01-31
+                FUT_CUR_GEN_TICKER = "YMH18"
+                PX_LAST = 97.805000
+            }
+            fieldData = {
+                date = 2018-02-28
+                FUT_CUR_GEN_TICKER = "YMH18"
+                PX_LAST = 97.890000
+            }
+            fieldData = {
+                date = 2018-03-31
+                FUT_CUR_GEN_TICKER = "YMM18"
+                PX_LAST = 97.865000
+            }
+            fieldData = {
+                date = 2018-04-30
+                FUT_CUR_GEN_TICKER = "YMM18"
+                PX_LAST = 97.780000
+            }
+            fieldData = {
+                date = 2018-05-31
+                FUT_CUR_GEN_TICKER = "YMM18"
+                PX_LAST = 97.870000
+            }
+            fieldData = {
+                date = 2018-06-30
+                FUT_CUR_GEN_TICKER = "YMU18"
+                PX_LAST = 97.920000
+            }
+            fieldData = {
+                date = 2018-07-31
+                FUT_CUR_GEN_TICKER = "YMU18"
+                PX_LAST = 97.890000
+            }
+            fieldData = {
+                date = 2018-08-31
+                FUT_CUR_GEN_TICKER = "YMU18"
+                PX_LAST = 98.005000
+            }
+            fieldData = {
+                date = 2018-09-30
+                FUT_CUR_GEN_TICKER = "YMZ8"
+                PX_LAST = 97.895000
+            }
+            fieldData = {
+                date = 2018-10-31
+                FUT_CUR_GEN_TICKER = "YMZ8"
+                PX_LAST = 97.950000
+            }
+            fieldData = {
+                date = 2018-11-30
+                FUT_CUR_GEN_TICKER = "YMZ8"
+                PX_LAST = 97.925000
+            }
+            fieldData = {
+                date = 2018-12-31
+                FUT_CUR_GEN_TICKER = "YMH9"
+                PX_LAST = 98.200000
             }
         }
     }
 }
 
-2019-09-15 15:25:56,502:BbgLogger:Parsing CHOICE element ReferenceDataResponse
-2019-09-15 15:25:56,502:BbgLogger:Parsing ARRAY element securityData
-2019-09-15 15:25:56,502:BbgLogger:Parsing SEQUENCE element securityData
-2019-09-15 15:25:56,503:BbgLogger:Parsing VALUE element security
-2019-09-15 15:25:56,503:BbgLogger:Parsing ARRAY element eidData
-2019-09-15 15:25:56,503:BbgLogger:Parsing ARRAY element fieldExceptions
-2019-09-15 15:25:56,503:BbgLogger:Parsing VALUE element sequenceNumber
-2019-09-15 15:25:56,503:BbgLogger:Parsing SEQUENCE element fieldData
-2019-09-15 15:25:56,503:BbgLogger:Parsing VALUE element PX_LAST
-2019-09-15 15:25:56,503:BbgLogger:Parsing VALUE element PX_HIGH
-2019-09-15 15:25:56,504:BbgLogger:Parsing VALUE element PX_LOW
-2019-09-15 15:25:56,504:BbgLogger:Parsing SEQUENCE element securityData
-2019-09-15 15:25:56,504:BbgLogger:Parsing VALUE element security
-2019-09-15 15:25:56,504:BbgLogger:Parsing ARRAY element eidData
-2019-09-15 15:25:56,504:BbgLogger:Parsing ARRAY element fieldExceptions
-2019-09-15 15:25:56,504:BbgLogger:Parsing VALUE element sequenceNumber
-2019-09-15 15:25:56,505:BbgLogger:Parsing SEQUENCE element fieldData
-2019-09-15 15:25:56,505:BbgLogger:Parsing VALUE element PX_LAST
-2019-09-15 15:25:56,505:BbgLogger:Parsing VALUE element PX_HIGH
-2019-09-15 15:25:56,505:BbgLogger:Parsing VALUE element PX_LOW
-2019-09-15 15:25:56,505:BbgLogger:Parsing SEQUENCE element securityData
-2019-09-15 15:25:56,505:BbgLogger:Parsing VALUE element security
-2019-09-15 15:25:56,506:BbgLogger:Parsing ARRAY element eidData
-2019-09-15 15:25:56,506:BbgLogger:Parsing ARRAY element fieldExceptions
-2019-09-15 15:25:56,506:BbgLogger:Parsing VALUE element sequenceNumber
-2019-09-15 15:25:56,506:BbgLogger:Parsing SEQUENCE element fieldData
-2019-09-15 15:25:56,506:BbgLogger:Parsing VALUE element PX_LAST
-2019-09-15 15:25:56,506:BbgLogger:Parsing VALUE element PX_HIGH
-2019-09-15 15:25:56,507:BbgLogger:Parsing VALUE element PX_LOW
-2019-09-15 15:25:56,523:BbgLogger:Fields          PX_HIGH  PX_LAST   PX_LOW
-securities                               
-AMP AU Equity      1.86     1.86    1.815
-IBM US Equity    144.65   143.67  143.260
-MSFT US Equity   138.06   137.32  136.570
-2019-09-15 15:25:56,550:BbgLogger:Session stopped with 'SESSION_STATUS' event of type SessionConnectionDown
-2019-09-15 15:25:56,550:BbgLogger:Session stopped with 'SESSION_STATUS' event of type SessionTerminated
+2019-09-15 17:34:46,766:BbgLogger:Parsing CHOICE element HistoricalDataResponse
+2019-09-15 17:34:46,767:BbgLogger:Parsing SEQUENCE element securityData
+2019-09-15 17:34:46,767:BbgLogger:Parsing VALUE element security
+2019-09-15 17:34:46,767:BbgLogger:Parsing ARRAY element eidData
+2019-09-15 17:34:46,767:BbgLogger:Parsing VALUE element sequenceNumber
+2019-09-15 17:34:46,767:BbgLogger:Parsing ARRAY element fieldExceptions
+2019-09-15 17:34:46,769:BbgLogger:Parsing ARRAY element fieldData
+2019-09-15 17:34:46,769:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,769:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,769:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,769:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,769:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,769:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,769:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,769:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,769:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,769:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,771:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,771:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,771:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,771:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,771:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,771:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,772:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,772:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,772:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,772:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,772:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,773:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,773:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,773:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,773:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,773:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,774:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,774:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,774:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,774:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,774:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,775:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,775:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,775:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,775:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,775:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,775:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,776:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,776:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,776:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,776:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,776:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,776:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,776:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,776:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,776:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,776:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,777:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,777:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,777:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,777:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,777:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,777:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,779:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,779:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,779:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,779:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,779:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,779:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,779:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,779:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,779:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,779:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,782:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,782:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,782:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,782:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,782:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,783:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,783:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,783:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,783:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,784:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,784:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,784:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,784:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,784:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,785:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,785:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,785:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,785:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,785:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,785:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,787:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,787:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,787:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,787:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,787:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,787:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,788:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,788:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,788:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,788:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,788:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,789:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,789:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,789:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,789:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,789:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,790:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,790:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,790:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,790:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,790:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,790:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,791:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,791:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,791:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,791:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,791:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,792:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,792:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,792:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,792:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,792:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,792:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,793:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,793:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,793:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,793:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,795:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,795:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,795:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,795:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,795:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,796:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,796:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,796:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,796:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,796:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,796:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,798:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,798:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,798:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,798:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,799:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,799:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,799:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,799:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,799:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,799:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,799:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,799:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,799:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,935:BbgLogger:HistoricalDataResponse = {
+    securityData = {
+        security = "XM1 Comdty"
+        eidData[] = {
+        }
+        sequenceNumber = 1
+        fieldExceptions[] = {
+        }
+        fieldData[] = {
+            fieldData = {
+                date = 2016-01-31
+                FUT_CUR_GEN_TICKER = "XMH16"
+                PX_LAST = 97.365000
+            }
+            fieldData = {
+                date = 2016-02-29
+                FUT_CUR_GEN_TICKER = "XMH16"
+                PX_LAST = 97.600000
+            }
+            fieldData = {
+                date = 2016-03-31
+                FUT_CUR_GEN_TICKER = "XMM16"
+                PX_LAST = 97.515000
+            }
+            fieldData = {
+                date = 2016-04-30
+                FUT_CUR_GEN_TICKER = "XMM16"
+                PX_LAST = 97.485000
+            }
+            fieldData = {
+                date = 2016-05-31
+                FUT_CUR_GEN_TICKER = "XMM16"
+                PX_LAST = 97.700000
+            }
+            fieldData = {
+                date = 2016-06-30
+                FUT_CUR_GEN_TICKER = "XMU16"
+                PX_LAST = 98.010000
+            }
+            fieldData = {
+                date = 2016-07-31
+                FUT_CUR_GEN_TICKER = "XMU16"
+                PX_LAST = 98.115000
+            }
+            fieldData = {
+                date = 2016-08-31
+                FUT_CUR_GEN_TICKER = "XMU16"
+                PX_LAST = 98.165000
+            }
+            fieldData = {
+                date = 2016-09-30
+                FUT_CUR_GEN_TICKER = "XMZ16"
+                PX_LAST = 98.085000
+            }
+            fieldData = {
+                date = 2016-10-31
+                FUT_CUR_GEN_TICKER = "XMZ16"
+                PX_LAST = 97.675000
+            }
+            fieldData = {
+                date = 2016-11-30
+                FUT_CUR_GEN_TICKER = "XMZ16"
+                PX_LAST = 97.310000
+            }
+            fieldData = {
+                date = 2016-12-31
+                FUT_CUR_GEN_TICKER = "XMH17"
+                PX_LAST = 97.200000
+            }
+            fieldData = {
+                date = 2017-01-31
+                FUT_CUR_GEN_TICKER = "XMH17"
+                PX_LAST = 97.255000
+            }
+            fieldData = {
+                date = 2017-02-28
+                FUT_CUR_GEN_TICKER = "XMH17"
+                PX_LAST = 97.250000
+            }
+            fieldData = {
+                date = 2017-03-31
+                FUT_CUR_GEN_TICKER = "XMM17"
+                PX_LAST = 97.270000
+            }
+            fieldData = {
+                date = 2017-04-30
+                FUT_CUR_GEN_TICKER = "XMM17"
+                PX_LAST = 97.395000
+            }
+            fieldData = {
+                date = 2017-05-31
+                FUT_CUR_GEN_TICKER = "XMM17"
+                PX_LAST = 97.585000
+            }
+            fieldData = {
+                date = 2017-06-30
+                FUT_CUR_GEN_TICKER = "XMU17"
+                PX_LAST = 97.350000
+            }
+            fieldData = {
+                date = 2017-07-31
+                FUT_CUR_GEN_TICKER = "XMU17"
+                PX_LAST = 97.320000
+            }
+            fieldData = {
+                date = 2017-08-31
+                FUT_CUR_GEN_TICKER = "XMU17"
+                PX_LAST = 97.290000
+            }
+            fieldData = {
+                date = 2017-09-30
+                FUT_CUR_GEN_TICKER = "XMZ17"
+                PX_LAST = 97.130000
+            }
+            fieldData = {
+                date = 2017-10-31
+                FUT_CUR_GEN_TICKER = "XMZ17"
+                PX_LAST = 97.310000
+            }
+            fieldData = {
+                date = 2017-11-30
+                FUT_CUR_GEN_TICKER = "XMZ17"
+                PX_LAST = 97.485000
+            }
+            fieldData = {
+                date = 2017-12-31
+                FUT_CUR_GEN_TICKER = "XMH18"
+                PX_LAST = 97.340000
+            }
+            fieldData = {
+                date = 2018-01-31
+                FUT_CUR_GEN_TICKER = "XMH18"
+                PX_LAST = 97.185000
+            }
+            fieldData = {
+                date = 2018-02-28
+                FUT_CUR_GEN_TICKER = "XMH18"
+                PX_LAST = 97.205000
+            }
+            fieldData = {
+                date = 2018-03-31
+                FUT_CUR_GEN_TICKER = "XMM18"
+                PX_LAST = 97.385000
+            }
+            fieldData = {
+                date = 2018-04-30
+                FUT_CUR_GEN_TICKER = "XMM18"
+                PX_LAST = 97.215000
+            }
+            fieldData = {
+                date = 2018-05-31
+                FUT_CUR_GEN_TICKER = "XMM18"
+                PX_LAST = 97.325000
+            }
+            fieldData = {
+                date = 2018-06-30
+                FUT_CUR_GEN_TICKER = "XMU18"
+                PX_LAST = 97.360000
+            }
+            fieldData = {
+                date = 2018-07-31
+                FUT_CUR_GEN_TICKER = "XMU18"
+                PX_LAST = 97.345000
+            }
+            fieldData = {
+                date = 2018-08-31
+                FUT_CUR_GEN_TICKER = "XMU18"
+                PX_LAST = 97.480000
+            }
+            fieldData = {
+                date = 2018-09-30
+                FUT_CUR_GEN_TICKER = "XMZ8"
+                PX_LAST = 97.310000
+            }
+            fieldData = {
+                date = 2018-10-31
+                FUT_CUR_GEN_TICKER = "XMZ8"
+                PX_LAST = 97.365000
+            }
+            fieldData = {
+                date = 2018-11-30
+                FUT_CUR_GEN_TICKER = "XMZ8"
+                PX_LAST = 97.405000
+            }
+            fieldData = {
+                date = 2018-12-31
+                FUT_CUR_GEN_TICKER = "XMH9"
+                PX_LAST = 97.680000
+            }
+        }
+    }
+}
+
+2019-09-15 17:34:46,936:BbgLogger:Parsing CHOICE element HistoricalDataResponse
+2019-09-15 17:34:46,936:BbgLogger:Parsing SEQUENCE element securityData
+2019-09-15 17:34:46,937:BbgLogger:Parsing VALUE element security
+2019-09-15 17:34:46,937:BbgLogger:Parsing ARRAY element eidData
+2019-09-15 17:34:46,937:BbgLogger:Parsing VALUE element sequenceNumber
+2019-09-15 17:34:46,937:BbgLogger:Parsing ARRAY element fieldExceptions
+2019-09-15 17:34:46,937:BbgLogger:Parsing ARRAY element fieldData
+2019-09-15 17:34:46,937:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,937:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,937:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,937:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,937:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,939:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,939:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,939:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,939:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,939:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,940:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,940:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,940:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,940:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,940:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,940:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,940:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,940:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,940:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,940:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,942:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,942:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,942:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,942:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,942:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,944:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,944:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,944:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,944:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,944:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,944:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,944:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,944:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,944:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,945:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,945:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,945:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,945:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,947:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,947:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,947:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,947:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,947:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,947:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,947:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,947:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,947:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,947:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,948:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,948:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,948:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,948:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,948:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,950:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,950:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,950:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,950:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,950:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,950:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,950:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,950:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,950:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,950:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,952:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,952:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,952:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,952:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,952:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,953:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,953:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,953:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,953:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,953:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,955:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,955:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,955:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,955:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,955:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,956:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,956:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,956:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,957:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,957:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,957:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,958:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,958:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,958:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,959:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,959:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,959:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,959:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,959:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,960:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,960:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,960:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,960:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,960:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,960:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,960:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,960:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,960:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,960:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,961:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,961:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,961:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,961:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,961:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,963:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,963:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,963:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,963:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,963:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,963:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,963:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,963:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,963:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,963:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,963:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,964:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,964:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,964:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,964:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,964:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,966:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,967:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,967:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,967:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,967:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,967:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,967:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,967:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,967:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,967:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,967:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,968:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,968:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,968:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,968:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,969:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,969:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:46,969:BbgLogger:Parsing SEQUENCE element fieldData
+2019-09-15 17:34:46,969:BbgLogger:Parsing VALUE element date
+2019-09-15 17:34:46,969:BbgLogger:Parsing VALUE element FUT_CUR_GEN_TICKER
+2019-09-15 17:34:46,970:BbgLogger:Parsing VALUE element PX_LAST
+2019-09-15 17:34:47,108:BbgLogger:Session stopped with 'SESSION_STATUS' event of type SessionConnectionDown
+2019-09-15 17:34:47,119:BbgLogger:Session stopped with 'SESSION_STATUS' event of type SessionTerminated
