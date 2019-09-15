@@ -59,10 +59,20 @@ class BbgDataService(BbgRefDataService):
         
         return request
 
-    def refDataContentToDf(self, responseContent):
+    def refDataContentToDf(self, response):
+        responseData = response['content']['ReferenceDataResponse']
         returnDf = pd.DataFrame()
-        for item in responseContent['ReferenceDataResponse']:
-            tempDf = pd.DataFrame(item['securityData']['fieldData']['fieldData'].items(), columns=['Fields', 'Values'])
-            tempDf['securities'] = item['securityData']['security']
-            returnDf = returnDf.append(tempDf)
-        return returnDf.pivot(index = 'securities', columns = 'Fields', values = 'Values')
+        tempDf = pd.DataFrame()
+        
+        for security in responseData:
+            securityData = security['securityData']
+            fieldData = securityData['fieldData']['fieldData']
+            
+            for fieldK, fieldV in fieldData.items():
+                for val in fieldV:
+                    tempDf = tempDf.append(pd.DataFrame(val.values()),sort=True)
+                    
+            tempDf['BB_TICKER'] = securityData['security']
+            returnDf = returnDf.append(tempDf,sort=True)
+            
+        return returnDf.set_index("BB_TICKER")

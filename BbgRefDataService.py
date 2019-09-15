@@ -20,9 +20,34 @@ class BbgRefDataService(BbgSession):
         self.startSession()
         self.service = self.openService(serviceUrl = "//blp/refdata")
     
-    def createRequest(self):
-        raise NotImplementedError("Subclass must implement this abstract method")
+    def createRequest(self, requestType, securities, fields):
+
+        logger.info("Creating refdata request...")
+        request = self.service.createRequest(requestType)
+
+        if type(securities) is not list:
+            list(securities)
+        if type(fields) is not list:
+            list(fields)
+
+        for security in securities:
+            request.append("securities", security)
+        
+        for field in fields:
+            request.append("fields", field)
+        
+        return request
     
+    def appendRequestOverrides(self, request, overrides):
+        if overrides is not None:
+            eOverrides = request.getElement("overrides")
+            overrideList = []
+            for k, v in overrides.items():
+                overrideList.append(eOverrides.appendElement())
+                overrideList[len(overrideList) - 1].setElement("fieldId", k)
+                overrideList[len(overrideList) - 1].setElement("value", v)
+        return request
+
     def parseResponse(self, cid):
         try:
             while(True):
@@ -68,6 +93,8 @@ class BbgRefDataService(BbgSession):
                 returnValue = None
             finally:
                 return returnValue
+    
+    
         
  # partial lookup table for events used from blpapi.Event
 eDict = {
