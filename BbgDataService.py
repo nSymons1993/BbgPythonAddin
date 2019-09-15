@@ -15,55 +15,29 @@ FIELD_ID = blpapi.Name("fieldId")
 ERROR_INFO = blpapi.Name("errorInfo")
 
 class BbgDataService(BbgRefDataService):
-    def __init__(self):
+    def __init__(self, fields, securities, overrides = None):
+        if len(fields) > 1:
+            raise TypeError("BbgDataService is only designed to handle a single bulk field per request.")
+        self.fields = fields
+        self.securities = securities
+        self.overrides = overrides
+
+    def constructDf(self):
         BbgRefDataService.__init__(self)
+        self.request = self.createRequest(securities = self.securities, fields = self.fields, requestType = "ReferenceDataRequest")
+        self.request = self.appendRequestOverrides(request = self.request, overrides = self.overrides)
+        self.cid = self.session.sendRequest(request = self.request)
+        self.bbgRefData = pd.DataFrame()
 
-    def dataService(self, fields, securities, requestType = "ReferenceDataRequest", overrides = None):
-        self.request = self.createRequest(securities = securities, fields = fields, overrides = overrides, requestType = requestType)
-        cid = self.session.sendRequest(self.request)
-
-        outData = pd.DataFrame(data=None, columns = ['Security','Field','Value'])
-
-        bbgRefData = pd.DataFrame()
-
-        for response in self.parseResponse(cid):
-            # Parse responses and append content to dataframe
-            #tempDf = self.refDataContentToDf(response['content'])
-            testResponse = response
+        for response in self.parseResponse(self.cid):
+            self.bbgRefData = self.bbgRefData.append(self.refDataContentToDf(response))
         
-        return response
-
-    def createRequest(self, requestType, securities, fields, overrides = None):
-
-        logger.info("Creating refdata request...")
-        request = self.service.createRequest(requestType)
-
-        if type(securities) is not list:
-            list(securities)
-        if type(fields) is not list:
-            list(fields)
-
-        for security in securities:
-            request.append("securities", security)
-        
-        for field in fields:
-            request.append("fields", field)
-
-        if overrides is not None:
-            eOverrides = request.getElement("overrides")
-            overrideList = []
-            for k, v in overrides.items():
-                overrideList.append(eOverrides.appendElement())
-                overrideList[len(overrideList) - 1].setElement("fieldId", k)
-                overrideList[len(overrideList) - 1].setElement("value", v)
-        
-        return request
+        return self.bbgRefData
 
     def refDataContentToDf(self, response):
         responseData = response['content']['ReferenceDataResponse']
         returnDf = pd.DataFrame()
         tempDf = pd.DataFrame()
-        appendRequestOverrides
         for security in responseData:
             securityData = security['securityData']
             fieldData = securityData['fieldData']['fieldData']
@@ -73,6 +47,7 @@ class BbgDataService(BbgRefDataService):
                     tempDf = tempDf.append(pd.DataFrame(val.values()),sort=True)
                     
             tempDf['BB_TICKER'] = securityData['security']
+            
             returnDf = returnDf.append(tempDf,sort=True)
             
         return returnDf.set_index("BB_TICKER")

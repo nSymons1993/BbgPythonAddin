@@ -27,13 +27,14 @@ class BbgDataPoint(BbgRefDataService):
         self.cid = self.session.sendRequest(self.request)
         self.bbgRefData = pd.DataFrame()
         for response in self.parseResponse(self.cid):
-            logger.info(self.refDataContentToDf(response['content']))
-            self.bbgRefData = self.bbgRefData.append(self.refDataContentToDf(response['content']))
+            self.bbgRefData = self.bbgRefData.append(self.refDataContentToDf(response))
         return self.bbgRefData
 
-    def refDataContentToDf(self, responseContent):
+    def refDataContentToDf(self, response):
+        responseContent = response['content']
+        referenceData = responseContent['ReferenceDataResponse']
         returnDf = pd.DataFrame()
-        for item in responseContent['ReferenceDataResponse']:
+        for item in referenceData:
             tempDf = pd.DataFrame(item['securityData']['fieldData']['fieldData'].items(), columns=['Fields', 'Values'])
             tempDf['securities'] = item['securityData']['security']
             returnDf = returnDf.append(tempDf)

@@ -31,11 +31,11 @@ class BbgDataHistory(BbgRefDataService):
         self.request = self.createRequest(securities = self.securities, fields = self.fields, requestType = "HistoricalDataRequest")
         self.appendRequestOverrides(request = self.request, overrides = self.overrides)
         self.appendHistoricalOverrides(request = self.request, startDate = self.startDate, endDate = self.endDate, perAdjustment = self.perAdjustment, perSelection = self.perSelection)
-        cid = self.session.sendRequest(self.request)
+        self.cid = self.session.sendRequest(self.request)
         bbgRefData = pd.DataFrame()
 
-        for response in self.parseResponse(cid):
-            bbgRefData = bbgRefData.append(self.refDataContentToDf(response))
+        for response in self.parseResponse(self.cid):
+            self.bbgRefData = self.bbgRefData.append(self.refDataContentToDf(response))
         
         bbgRefData = bbgRefData.set_index('Security', append = True).pivot(columns='Field').unstack('Security')
         bbgRefData.columns = bbgRefData.columns.droplevel(0).swaplevel()
