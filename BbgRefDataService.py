@@ -19,6 +19,8 @@ class BbgRefDataService(BbgSession):
         BbgSession.__init__(self)
         self.startSession()
         self.service = self.openService(serviceUrl = "//blp/refdata")
+        self.request = None
+        self.bbgRefData = None
     
     def createRequest(self, requestType, securities, fields):
 

@@ -37,8 +37,8 @@ class BbgDataHistory(BbgRefDataService):
         for response in self.parseResponse(self.cid):
             self.bbgRefData = self.bbgRefData.append(self.refDataContentToDf(response))
         
-        bbgRefData = bbgRefData.set_index('Security', append = True).pivot(columns='Field').unstack('Security')
-        bbgRefData.columns = bbgRefData.columns.droplevel(0).swaplevel()
+        self.bbgRefData = self.bbgRefData.set_index('Security', append = True).pivot(columns='Field').unstack('Security')
+        self.bbgRefData.columns = self.bbgRefData.columns.droplevel(0).swaplevel()
         
         return self.bbgRefData
 

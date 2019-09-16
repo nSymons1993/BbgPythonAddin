@@ -41,7 +41,7 @@ class BbgDataService(BbgRefDataService):
         for security in responseData:
             securityData = security['securityData']
             fieldData = securityData['fieldData']['fieldData']
-            
+            tempDf = pd.DataFrame()
             for fieldK, fieldV in fieldData.items():
                 for val in fieldV:
                     tempDf = tempDf.append(pd.DataFrame(val.values()),sort=True)
@@ -51,3 +51,13 @@ class BbgDataService(BbgRefDataService):
             returnDf = returnDf.append(tempDf,sort=True)
             
         return returnDf.set_index("BB_TICKER")
+    
+    def inspectResponse(self):
+        responseList = []
+        BbgRefDataService.__init__(self)
+        self.request = self.createRequest(securities = self.securities, fields = self.fields, requestType = "ReferenceDataRequest")
+        self.request = self.appendRequestOverrides(self.request, self.overrides)
+        self.cid = self.session.sendRequest(self.request)
+        for response in self.parseResponse(self.cid):
+            responseList.append(response)
+        return responseList

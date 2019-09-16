@@ -39,6 +39,16 @@ class BbgDataPoint(BbgRefDataService):
             tempDf['securities'] = item['securityData']['security']
             returnDf = returnDf.append(tempDf)
         return returnDf.pivot(index = 'securities', columns = 'Fields', values = 'Values')
+    
+    def inspectReponse(self):
+        responseList = []
+        BbgRefDataService.__init__(self)
+        self.request = self.createRequest(securities = self.securities, fields = self.fields, requestType = "ReferenceDataRequest")
+        self.request = self.appendRequestOverrides(self.request, self.overrides)
+        self.cid = self.session.sendRequest(self.request)
+        for response in self.parseResponse(self.cid):
+            responseList.append(response)
+        return responseList
 
     
 
