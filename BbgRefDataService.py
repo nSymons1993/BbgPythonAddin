@@ -40,6 +40,29 @@ class BbgRefDataService(BbgSession):
         
         return request
     
+    def createIntradayBarRequest(self, requestType, security, fields, startTime, endTime, event, barInterval, gapFillInitialBar):
+        logger.info("Creating refdata intraday request...")
+        request = self.service.createRequest(requestType)
+        request.set("security", security)
+        request.set("startDateTime", startTime)
+        request.set("endDateTime", endTime)
+        request.set("eventType", event)
+        request.set("interval", barInterval)
+        if gapFillInitialBar:
+            request.set("gapFillInitialBar", True)
+        return request
+
+    def createIntradayRequest(self, requestType, security, fields, startTime, endTime):
+        logger.info("Creating refdata intraday request...")
+        request = self.service.createRequest(requestType)
+        request.set("security", security)
+        request.set("startDateTime", startTime)
+        request.set("endDateTime", endTime)
+        for field in fields:
+            request.getElement("eventTypes").appendValue(field)
+        request.set("includeConditionCodes", True)
+        return request
+
     def appendRequestOverrides(self, request, overrides):
         if overrides is not None:
             eOverrides = request.getElement("overrides")
@@ -50,7 +73,7 @@ class BbgRefDataService(BbgSession):
                 overrideList[len(overrideList) - 1].setElement("value", v)
         return request
 
-    def parseResponse(self, cid):
+    def parseResponse(self, cid, stopSession = True):
         try:
             while(True):
                 ev = self.session.nextEvent(500)
@@ -64,7 +87,8 @@ class BbgRefDataService(BbgSession):
                     break
         finally:
             # Stop the session
-            self.closeSession()
+            if stopSession == True:
+                self.closeSession()
     
     def parseResponseMsg(self, msg):
         return {
@@ -96,7 +120,8 @@ class BbgRefDataService(BbgSession):
             finally:
                 return returnValue
     
-    
+    def __del__(self):
+        self.closeSession()
         
  # partial lookup table for events used from blpapi.Event
 eDict = {
