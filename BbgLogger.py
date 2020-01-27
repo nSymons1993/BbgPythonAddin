@@ -1,13 +1,17 @@
 import logging
+import os
 
-with open("bbgLogFile.log", "r+") as f:
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+log_file = os.path.join(THIS_FOLDER, 'bbgLogFile.log')
+
+with open(log_file, "r+") as f:
     f.seek(0)
     f.truncate()
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-file_handler = logging.FileHandler('bbgLogFile.log')
+file_handler = logging.FileHandler(log_file)
 file_handler.setLevel(logging.INFO)
 file_formatter = logging.Formatter('%(asctime)s:%(name)s:%(message)s')
 file_handler.setFormatter(file_formatter)

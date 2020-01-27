@@ -1,5 +1,5 @@
 import blpapi
-import BbgLogger
+from . import BbgLogger
 
 logger = BbgLogger.logger
 

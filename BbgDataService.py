@@ -1,9 +1,9 @@
 import blpapi
 import logging
-from BbgRefDataService import BbgRefDataService
+from .BbgRefDataService import BbgRefDataService
 import pandas as pd
 import numpy as np
-import BbgLogger
+from . import BbgLogger
 
 logger = BbgLogger.logger
 

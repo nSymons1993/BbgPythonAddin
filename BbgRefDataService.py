@@ -1,8 +1,8 @@
 import blpapi
-from BbgSession import BbgSession
+from .BbgSession import BbgSession
 import pandas as pd
 import numpy as np
-import BbgLogger
+from . import BbgLogger
 
 SECURITY_DATA = blpapi.Name("securityData")
 SECURITY = blpapi.Name("security")
