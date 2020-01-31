@@ -51,17 +51,21 @@ class BbgDataHistory(BbgRefDataService):
         --------
         Constructing DataFrame of last and bid prices for ACGB 3Y and 10Y Futures.
 
-        >>> ACGBFutQ = bbg.BbgDataHistory(fields = ['PX_LAST', 'PX_BID'], securities = ['YM1 Comdty','XM1 Comdty'], startDate = '20200106', endDate = '20200110', perAdjustment = 'ACTUAL', perSelection = 'DAILY')
+        >>> import BloombergDataModule as bbg
+
+        >>> import pandas as pd
+
+        >>> ACGBFutQ = bbg.BbgDataHistory(fields = ['PX_LAST', 'PX_BID'], securities = ['YM1 Comdty','XM1 Comdty'], startDate =        '20200106', endDate = '20200110', perAdjustment = 'ACTUAL', perSelection = 'DAILY')
         
         >>> ACGBFutQ.constructDf()
-        Security	XM1 Comdty	YM1 Comdty	XM1 Comdty	YM1 Comdty
-        Field	    PX_BID	    PX_BID	    PX_LAST	    PX_LAST
-        Date				
-        2020-01-06	98.775	    99.215	    98.78	    99.22
-        2020-01-07	98.76	    99.215	    98.765	    99.22
-        2020-01-08	98.795	    99.235	    98.8	    99.24
-        2020-01-09	98.74	    99.2	    98.745	    99.205
-        2020-01-10	98.725	    99.19	    98.73	    99.195
+            Security	XM1 Comdty	YM1 Comdty	XM1 Comdty	YM1 Comdty
+            Field	    PX_BID	    PX_BID	    PX_LAST	    PX_LAST
+            Date				
+            2020-01-06	98.775	    99.215	    98.78	    99.22
+            2020-01-07	98.76	    99.215	    98.765	    99.22
+            2020-01-08	98.795	    99.235	    98.8	    99.24
+            2020-01-09	98.74	    99.2	    98.745	    99.205
+            2020-01-10	98.725	    99.19	    98.73	    99.195
         '''
         
         self.fields = fields
@@ -92,8 +96,9 @@ class BbgDataHistory(BbgRefDataService):
         
         See Also
         --------
-        BbgDataHistory.constructLongDf : retrieves data with securities stacked, may be
-            preferable depending on end user.
+        BbgDataPoint.constructDf : retrieves static point data and constructs a DataFrame from it.  It has more customisability with respect to overrides
+        BbgIntradayTick.constructDf: retrieves intraday (or multi-day) tick level data and constructs a dataframe from it.  It has applications in more data intensive and granular analysis
+        BbgIntradayBar.constructDf: retrieves intraday (or multi-day) bar level (open-high-low-close) data and constructs a dataframe from it.  It is for use in more data intensive and granular analysis.constructDf.  The bar interval frequency can be specified in minutes to optimise for efficiency and speed.
 
         Notes
         -----
@@ -103,19 +108,23 @@ class BbgDataHistory(BbgRefDataService):
         --------
         Constructing DataFrame of last and bid prices for ACGB 3Y and 10Y Futures.
 
+        >>> import BloombergDataModule as bbg
+
+        >>> import pandas as pd
+
         >>> ACGBFutQ = bbg.BbgDataHistory(fields = ['PX_LAST', 'PX_BID'], securities = 
             ['YM1 Comdty','XM1 Comdty'], startDate = '20200106', endDate = '20200110', 
             perAdjustment = 'ACTUAL', perSelection = 'DAILY')
         
         >>> ACGBFutQ.constructDf()
-        Security	XM1 Comdty	YM1 Comdty	XM1 Comdty	YM1 Comdty
-        Field	    PX_BID	    PX_BID	    PX_LAST	    PX_LAST
-        Date				
-        2020-01-06	98.775	    99.215	    98.78	    99.22
-        2020-01-07	98.76	    99.215	    98.765	    99.22
-        2020-01-08	98.795	    99.235	    98.8	    99.24
-        2020-01-09	98.74	    99.2	    98.745	    99.205
-        2020-01-10	98.725	    99.19	    98.73	    99.195
+            Security	XM1 Comdty	YM1 Comdty	XM1 Comdty	YM1 Comdty
+            Field	    PX_BID	    PX_BID	    PX_LAST	    PX_LAST
+            Date				
+            2020-01-06	98.775	    99.215	    98.78	    99.22
+            2020-01-07	98.76	    99.215	    98.765	    99.22
+            2020-01-08	98.795	    99.235	    98.8	    99.24
+            2020-01-09	98.74	    99.2	    98.745	    99.205
+            2020-01-10	98.725	    99.19	    98.73	    99.195
         '''
         BbgRefDataService.__init__(self)
         self.request = self.createRequest(securities = self.securities, fields = self.fields, requestType = "HistoricalDataRequest")
