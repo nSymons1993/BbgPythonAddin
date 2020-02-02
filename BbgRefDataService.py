@@ -40,7 +40,7 @@ class BbgRefDataService(BbgSession):
         
         return request
     
-    def createIntradayBarRequest(self, requestType, security, fields, startTime, endTime, event, barInterval, gapFillInitialBar):
+    def createIntradayBarRequest(self, requestType, security, startTime, endTime, event, barInterval, gapFillInitialBar, adjustmentSplit, adjustmentAbnormal, adjustmentNormal, adjustmentFollowDPDF):
         logger.info("Creating refdata intraday request...")
         request = self.service.createRequest(requestType)
         request.set("security", security)
@@ -48,6 +48,10 @@ class BbgRefDataService(BbgSession):
         request.set("endDateTime", endTime)
         request.set("eventType", event)
         request.set("interval", barInterval)
+        request.set("adjustmentSplit", adjustmentSplit)
+        request.set("adjustmentAbnormal", adjustmentAbnormal)
+        request.set("adjustmentNormal", adjustmentNormal)
+        request.set("adjustmentFollowDPDF", adjustmentFollowDPDF)
         if gapFillInitialBar:
             request.set("gapFillInitialBar", True)
         return request
