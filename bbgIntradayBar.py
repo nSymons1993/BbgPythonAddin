@@ -114,7 +114,7 @@ class BbgIntradayBar(BbgRefDataService):
     def constructDf(self):
         BbgRefDataService.__init__(self)
         self.bbgRefData = pd.DataFrame()
-        
+
         UTCStartTime = self.__convertFromTimezoneToUTC(self.startTime, self.timeZone)
         UTCEndTime = self.__convertFromTimezoneToUTC(self.endTime, self.timeZone)
 
@@ -125,9 +125,7 @@ class BbgIntradayBar(BbgRefDataService):
             for response in self.parseResponse(self.cid, False):
                 self.bbgRefData = self.bbgRefData.append(self.refDataContentToDf(response, sec))
         BbgRefDataService.__del__(self)
-        if adjustTime == "Y":
-            self.bbgRefData['time'] = self.bbgRefData['time'].apply(lambda x: self.__convertFromUTCToTimezone(x, self.timeZone))
-        
+        self.bbgRefData['time'] = self.bbgRefData['time'].apply(lambda x: self.__convertFromUTCToTimezone(x, self.timeZone))
         return self.bbgRefData.set_index(['Security', 'time'])
 
     def refDataContentToDf(self, response, security):
