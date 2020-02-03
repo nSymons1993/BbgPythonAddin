@@ -30,7 +30,7 @@ TIME = blpapi.Name("time")
 class BbgIntradayBar(BbgRefDataService):
     def __init__(self, securities, startTime, endTime, event = "TRADE", barInterval = 60, timeZone = str(get_localzone()), gapFillInitialBar = False, adjustmentSplit = True, adjustmentAbnormal = False, adjustmentNormal = False, adjustmentFollowDPDF = True):
         '''
-            Bloomberg Historical Data query object.  Allows user to input a list of securities and fields for retrieval over a specified time period with the ability to override certain field (as specified in FLDS <GO>) if required.
+            Bloomberg Intraday Bar query object.  Allows user to input a list of securities retrieval over a specified time period subject to the usual constraints that apply to Bloomberg Intraday Bar data retrieval.
 
         Parameters
         ----------
@@ -39,65 +39,53 @@ class BbgIntradayBar(BbgRefDataService):
         securities : tuple, list, or ndarray
             List of Bloomberg tickers to retrieve data for.  If one item is passed this can be input as a string, otherwise inputs must be passed as a list or array-like.
         startTime : datetime.datetime
-            The start date and time at which to retrieving data from.  Must be passed as a datetime.  If no timezone is passed, will default to co-ordinated UTC.
+            The start date and time at which to retrieving data from.  Must be passed as a datetime.
         endTime : datetime.datetime
-            The end date and time at which to retrieving data from.  Must be passed as a datetime.  If no timezone is passed, will default to co-ordinated UTC.
-        perAdjustment : string, default ACTUAL
-            Determines the frequency and calendar type of the output. To be used in conjunction with Period Selection.  Inputs include:
-            1. ACTUAL : These revert to the actual date from today (if the end date is left blank) or from the end date.
-            2. CALENDAR : For pricing fields, these revert to the last business day of the specified calendar period. Calendar Quarterly (CQ), Calendar Semi-Annually (CS) or Calendar Yearly (CY).
-            3. FISCAL : These periods revert to the fiscal period end for the company: Fiscal Quarterly (FQ), Fiscal SemiAnnual (FS) and Fiscal Yearly (FY) only.
-        perSelection : string, default MONTHLY Determines the frequency of the output. To be used in conjunction with Period Adjustment.  Inputs include DAILY, WEEKLY, MONTHLY, QUARTERLY, SEMI_ANNUAL and YEARLY.
-        overrides : dictionary, optional
-            A dictionary containing key, value pairs of fields and override values to input.        
-        overrides : dictionary, optional
-            A dictionary containing key, value pairs of fields and override values to input.
+            The end date and time at which to retrieving data from.  Must be passed as a datetime.
+        event : string
+            Defines the market event supplied for an intraday request.  Could be TRADE, BID or ASK.  If no event is passed, will default to TRADE.
+        barInterval : integer
+            Sets the length of each time-bar in the response. Entered as a whole number (between 1 and 1,440 minutes). If omitted, the request will default to 60 minutes. One minute is the lowest possible granularity.
+        timeZone : string
+            Timezone for the request based on the pytz package timezone names.  If no timezone is passed, will default to current system timezone.
+        gapFillInitialBar : bool
+            Adjust historical pricing to reflect: Special Cash, Liquidation, Capital Gains, Long-Term Capital Gains, Short-Term Capital Gains, Memorial, Return of Capital, Rights Redemption, Miscellaneous, Return Premium, Preferred Rights Redemption, Proceeds/Rights, Proceeds/Shares, Proceeds/Warrants
+        adjustmentSplit : bool
+            Adjust historical pricing and/or volume to reflect: Spin-Offs, Stock Splits/Consolidations, Stock Dividend/Bonus, Rights Offerings/Entitlement.  If not set, will be set to True.
+        adjustmentAbnormal : bool
+            Adjust historical pricing to reflect: Special Cash, Liquidation, Capital Gains, Long-Term Capital Gains, Short-Term Capital Gains, Memorial, Return of Capital, Rights Redemption, Miscellaneous, Return Premium, Preferred Rights Redemption, Proceeds/Rights, Proceeds/Shares, Proceeds/Warrants.  If not set, will be set to False.
+        adjustmentNormal : bool
+            Adjust historical pricing to reflect: Regular Cash, Interim, 1st Interim, 2nd Interim, 3rd Interim, 4th Interim, 5th Interim, Income, Estimated, Partnership Distribution, Final, Interest on Capital, Distribution, Prorated.  If not set, will be set to False.
+        adjustmentFollowDPDF : bool
+            Setting to True will follow the DPDF <GO> Terminal function. True is the default setting for this option.  If not set, will be set to True.
         
         See Also
         --------
-        BbgDataPoint.constructDf : Constructor method, retrieves data associated with a BbgDataPoint query object and generates a dataframe from it.
+        BbgIntradayBar.constructDf : Constructor method, retrieves data associated with a BbgDataPoint query object and generates a dataframe from it.
         BbgDataPoint : Retrieve single point static, calculated or other reference data.
         BbgIntradayTick : Retrieve historic tick-level data for a given security.
         BbgIntradayBar : Retrieve historic bar level data for a given security (open, high, low and close) for a specified time interval given in minutes.
 
         Examples
         --------
-        Retrieve last, high and low price data for a basket of stocks in the current session.
+        Retrieve open, high, low, close, volume, number of events and value data for a basket of securities between two datetimes.
 
-        >>> import BloombergDataModule as bbg
-
-        >>> import pandas as pd
-
-        >>> stockPriceData = bbg.BbgDataPoint(securities = ['MSFT US Equity', 'IBM US Equity', 'AMP AU Equity'],fields =               ['PX_LAST', 'PX_HIGH', 'PX_LOW'])
+        >>> import datetime as dt
         
-        >>> stockPriceData.constructDf()
-            Fields	            PX_HIGH	    PX_LAST	    PX_LOW
-            securities			
-            AMP AU Equity	    1.84	    1.825	    1.815
-            IBM US Equity	    144.05	    143.730	    140.790
-            MSFT US Equity	    172.40	    170.230	    169.580
-
-        Retrieve bid and ask forward yield to convention for the 3-Year bond futures basket @ the futures settlement date
-
+        >>> import pandas as pd
+        
         >>> import BloombergDataModule as bbg
 
-        >>> import pandas as pd
-
-        >>> basketBondA = bbg.BbgDataPoint(securities = ['AP364296 Corp'],fields = ['YLD CNV BID', 'YLD CNV ASK'], overrides =         {'SETTLE_DT': "20200615", "PX_BID": 104.0189, "PX_ASK": 104.0339})
-        >>> basketBondB = bbg.BbgDataPoint(securities = ['AP364296 Corp'],fields = ['YLD CNV BID', 'YLD CNV ASK'], overrides =         {'SETTLE_DT': "20200615", "PX_BID": 113.8049, "PX_ASK": 113.8199})
-        >>> basketBondC = bbg.BbgDataPoint(securities = ['AP364296 Corp'],fields = ['YLD CNV BID', 'YLD CNV ASK'], overrides =         {'SETTLE_DT': "20200615", "PX_BID": 107.8918, "PX_ASK": 107.9968})
-
-        >>> outData = pd.DataFrame()
-        >>> outData = outData.append(basketBondA.constructDf())
-        >>> outData = outData.append(basketBondB.constructDf())
-        >>> outData = outData.append(basketBondC.constructDf())
-
-        >>> outData
-            Fields	            YLD CNV ASK     YLD CNV BID
-            securities		
-            AP364296 Corp   	0.577168	    0.583240
-            AP364296 Corp   	-3.170604	    -3.165165
-            AP364296 Corp   	-0.990407	    -0.949785
+        >>> futHist = bbg.BbgIntradayBar(securities = ["YMH0 Comdty", "XMH0 Comdty"], startTime = dt.datetime(2020, 1, 31, 9, 0, 0), endTime = dt.datetime(2020, 1, 31, 12, 0, 0), barInterval = 5)
+        
+        >>> futHist.constructDf().head()
+            Field	                                    open	high	low	    close	volume	numEvents	value
+            Security	    time							
+            YMH0 Comdty	    2020-01-31 09:10:00+11:00	99.37	99.375	99.37	99.375	149	    3	        14806.3
+                            2020-01-31 09:15:00+11:00	99.375	99.38	99.375	99.38	1749	13	        173807
+                            2020-01-31 09:20:00+11:00	99.38	99.38	99.38	99.38	6	    6	        596.28
+                            2020-01-31 09:25:00+11:00	99.38	99.38	99.375	99.38	2170	35	        215655
+                            2020-01-31 09:30:00+11:00	99.38	99.38	99.375	99.38	93	    3	        9241.89
         '''
         self.securities = list(securities) if type(securities) is not list else securities
         self.startTime = startTime
@@ -112,6 +100,53 @@ class BbgIntradayBar(BbgRefDataService):
         self.adjustmentFollowDPDF = adjustmentFollowDPDF
 
     def constructDf(self):
+        '''
+        The constructDf method retrieves data associated with a BbgIntradayBar query object and generates a dataframe from it.
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        -------
+        table : DataFrame
+
+        Raises
+        ------
+        ValueError:
+            Blah blah blah
+        
+        See Also
+        --------
+        BbgDataHistory.constructDf : retrieves static history data and constructs a DataFrame from it.  It has more customisability with respect to overrides
+        BbgIntradayTick.constructDf: retrieves intraday (or multi-day) tick level data and constructs a dataframe from it.  It has applications in more data intensive and granular analysis
+        BbgDataPoint.constructDf: retrieves intraday (or multi-day) bar level (open-high-low-close) data and constructs a dataframe from it.  It is for use in more data intensive and granular analysis.constructDf.  The bar interval frequency can be specified in minutes to optimise for efficiency and speed.
+
+        Notes
+        -----
+        Blah blah blah
+        
+        Examples
+        --------
+        Retrieve open, high, low, close, volume, number of events and value data for a basket of securities between two datetimes.
+
+        >>> import datetime as dt
+        
+        >>> import pandas as pd
+        
+        >>> import BloombergDataModule as bbg
+
+        >>> futHist = bbg.BbgIntradayBar(securities = ["YMH0 Comdty", "XMH0 Comdty"], startTime = dt.datetime(2020, 1, 31, 9, 0, 0), endTime = dt.datetime(2020, 1, 31, 12, 0, 0), barInterval = 5)
+        
+        >>> futHist.constructDf().head()
+            Field	                                    open	high	low	    close	volume	numEvents	value
+            Security	    time							
+            YMH0 Comdty	    2020-01-31 09:10:00+11:00	99.37	99.375	99.37	99.375	149	    3	        14806.3
+                            2020-01-31 09:15:00+11:00	99.375	99.38	99.375	99.38	1749	13	        173807
+                            2020-01-31 09:20:00+11:00	99.38	99.38	99.38	99.38	6	    6	        596.28
+                            2020-01-31 09:25:00+11:00	99.38	99.38	99.375	99.38	2170	35	        215655
+                            2020-01-31 09:30:00+11:00	99.38	99.38	99.375	99.38	93	    3	        9241.89
+        '''
         BbgRefDataService.__init__(self)
         self.bbgRefData = pd.DataFrame()
 
