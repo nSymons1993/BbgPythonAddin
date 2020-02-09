@@ -4,7 +4,7 @@ import logging
 from .BbgRefDataService import BbgRefDataService
 import pandas as pd
 import numpy as np
-import BbgLogger
+from . import BbgLogger
 import pytz
 from tzlocal import get_localzone
 

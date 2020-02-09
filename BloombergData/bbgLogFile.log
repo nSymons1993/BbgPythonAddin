@@ -1,0 +1,85 @@
+2020-02-09 23:21:46,889:BloombergData.BbgLogger:Trying to connect to localhost:8194
+2020-02-09 23:21:47,188:BloombergData.BbgLogger:Initializing connection to BLP API: Starting BLP Session
+2020-02-09 23:21:47,372:BloombergData.BbgLogger:Successfully started blpapi session with SESSION_STATUS response of type SessionConnectionUp
+2020-02-09 23:21:47,373:BloombergData.BbgLogger:'SESSION_STATUS' response returned with content:
+SessionConnectionUp
+2020-02-09 23:21:47,373:BloombergData.BbgLogger:Initializing connection to BLP API: Opening BLP Service
+2020-02-09 23:22:08,056:BloombergData.BbgLogger:Successfully opened //blp/refdata service with SESSION_STATUS response of type SessionStarted
+2020-02-09 23:22:08,056:BloombergData.BbgLogger:'SESSION_STATUS' response returned with content:
+SessionStarted
+2020-02-09 23:22:08,056:BloombergData.BbgLogger:Creating refdata request...
+2020-02-09 23:22:08,508:BloombergData.BbgLogger:ReferenceDataResponse = {
+    securityData[] = {
+        securityData = {
+            security = "MSFT US Equity"
+            eidData[] = {
+            }
+            fieldExceptions[] = {
+            }
+            sequenceNumber = 0
+            fieldData = {
+                PX_LAST = 183.890000
+                PX_HIGH = 185.630000
+                PX_LOW = 182.480000
+            }
+        }
+        securityData = {
+            security = "IBM US Equity"
+            eidData[] = {
+            }
+            fieldExceptions[] = {
+            }
+            sequenceNumber = 1
+            fieldData = {
+                PX_LAST = 153.410000
+                PX_HIGH = 155.540000
+                PX_LOW = 152.920000
+            }
+        }
+        securityData = {
+            security = "AMP AU Equity"
+            eidData[] = {
+            }
+            fieldExceptions[] = {
+            }
+            sequenceNumber = 2
+            fieldData = {
+                PX_LAST = 1.745000
+                PX_HIGH = 1.780000
+                PX_LOW = 1.740000
+            }
+        }
+    }
+}
+
+2020-02-09 23:22:08,515:BloombergData.BbgLogger:Parsing CHOICE element ReferenceDataResponse
+2020-02-09 23:22:08,515:BloombergData.BbgLogger:Parsing ARRAY element securityData
+2020-02-09 23:22:08,515:BloombergData.BbgLogger:Parsing SEQUENCE element securityData
+2020-02-09 23:22:08,516:BloombergData.BbgLogger:Parsing VALUE element security
+2020-02-09 23:22:08,516:BloombergData.BbgLogger:Parsing ARRAY element eidData
+2020-02-09 23:22:08,516:BloombergData.BbgLogger:Parsing ARRAY element fieldExceptions
+2020-02-09 23:22:08,516:BloombergData.BbgLogger:Parsing VALUE element sequenceNumber
+2020-02-09 23:22:08,516:BloombergData.BbgLogger:Parsing SEQUENCE element fieldData
+2020-02-09 23:22:08,516:BloombergData.BbgLogger:Parsing VALUE element PX_LAST
+2020-02-09 23:22:08,516:BloombergData.BbgLogger:Parsing VALUE element PX_HIGH
+2020-02-09 23:22:08,517:BloombergData.BbgLogger:Parsing VALUE element PX_LOW
+2020-02-09 23:22:08,517:BloombergData.BbgLogger:Parsing SEQUENCE element securityData
+2020-02-09 23:22:08,517:BloombergData.BbgLogger:Parsing VALUE element security
+2020-02-09 23:22:08,517:BloombergData.BbgLogger:Parsing ARRAY element eidData
+2020-02-09 23:22:08,517:BloombergData.BbgLogger:Parsing ARRAY element fieldExceptions
+2020-02-09 23:22:08,517:BloombergData.BbgLogger:Parsing VALUE element sequenceNumber
+2020-02-09 23:22:08,517:BloombergData.BbgLogger:Parsing SEQUENCE element fieldData
+2020-02-09 23:22:08,518:BloombergData.BbgLogger:Parsing VALUE element PX_LAST
+2020-02-09 23:22:08,518:BloombergData.BbgLogger:Parsing VALUE element PX_HIGH
+2020-02-09 23:22:08,518:BloombergData.BbgLogger:Parsing VALUE element PX_LOW
+2020-02-09 23:22:08,518:BloombergData.BbgLogger:Parsing SEQUENCE element securityData
+2020-02-09 23:22:08,518:BloombergData.BbgLogger:Parsing VALUE element security
+2020-02-09 23:22:08,518:BloombergData.BbgLogger:Parsing ARRAY element eidData
+2020-02-09 23:22:08,518:BloombergData.BbgLogger:Parsing ARRAY element fieldExceptions
+2020-02-09 23:22:08,519:BloombergData.BbgLogger:Parsing VALUE element sequenceNumber
+2020-02-09 23:22:08,519:BloombergData.BbgLogger:Parsing SEQUENCE element fieldData
+2020-02-09 23:22:08,519:BloombergData.BbgLogger:Parsing VALUE element PX_LAST
+2020-02-09 23:22:08,519:BloombergData.BbgLogger:Parsing VALUE element PX_HIGH
+2020-02-09 23:22:08,519:BloombergData.BbgLogger:Parsing VALUE element PX_LOW
+2020-02-09 23:22:08,752:BloombergData.BbgLogger:Session stopped with 'SESSION_STATUS' event of type SessionConnectionDown
+2020-02-09 23:22:08,753:BloombergData.BbgLogger:Session stopped with 'SESSION_STATUS' event of type SessionTerminated

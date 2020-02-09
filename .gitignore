@@ -1,5 +1,4 @@
-#log files
-*.log
+
 
 #iPython Nbs
 *.ipynb
@@ -17,6 +16,9 @@ __pycache__/
 
 # C extensions
 *.so
+
+# Bash stackdumps
+.stackdump
 
 # Distribution / packaging
 .Python
@@ -67,7 +69,6 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal

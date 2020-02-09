@@ -1,5 +1,5 @@
-from .BbgDataHistory import BbgDataHistory
+from BloombergData.BbgDataHistory import BbgDataHistory
 # Need to extend BbgDataPoint to allow it to handle lists of overrides where required
-from .BbgDataPoint import BbgDataPoint
-from .BbgDataService import BbgDataService
-from .bbgIntradayBar import BbgIntradayBar
+from BloombergData.BbgDataPoint import BbgDataPoint
+from BloombergData.BbgDataService import BbgDataService
+from BloombergData.bbgIntradayBar import BbgIntradayBar
