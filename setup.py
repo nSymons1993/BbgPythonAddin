@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'BloombergData',
   packages = ['BloombergData'],
-  version = '0.1',
+  version = '0.2',
   license='MIT',
   description = 'A package to enable retrieval of data through the Bloomberg API into pandas dataframes.',
   author = 'Nicholas Symons',
