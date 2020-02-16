@@ -8,7 +8,7 @@ setup(
   author = 'Nicholas Symons',
   author_email = 'n.symons1993@outlook.com',
   url = 'https://github.com/nSymons1993/BbgPythonAddin',
-  download_url = 'https://github.com/nSymons1993/BbgPythonAddin/archive/v_01.tar.gz',
+  download_url = 'https://github.com/nSymons1993/BbgPythonAddin/archive/v_02.tar.gz',
   keywords = ['Bloomberg', 'Finance', 'Equities', 'Fixed Income', 'Derivatives', 'Benchmark', 'Index', 'Algorithm', 'Portfolio', 'Trading', 'Management', 'API', 'Financial', 'Machine Learning', 'Statistics', 'FX', 'Options', 'Swaps', 'Swaptions', 'Trade', 'pandas', 'numpy', 'big data'],   # Keywords that define your package best
   install_requires=[
             'blpapi',
