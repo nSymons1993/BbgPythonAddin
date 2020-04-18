@@ -12,7 +12,6 @@ setup(
   keywords = ['Bloomberg', 'Finance', 'Equities', 'Fixed Income', 'Derivatives', 'Benchmark', 'Index', 'Algorithm', 'Portfolio', 'Trading', 'Management', 'API', 'Financial', 'Machine Learning', 'Statistics', 'FX', 'Options', 'Swaps', 'Swaptions', 'Trade', 'pandas', 'numpy', 'big data'],
   install_requires=[
             'blpapi',
-            'logging',
             'pandas>=0.24.0',
             'numpy',
             'datetime',
