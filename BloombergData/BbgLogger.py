@@ -4,7 +4,7 @@ import os
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 log_file = os.path.join(THIS_FOLDER, 'bbgLogFile.log')
 
-with open(log_file, "r+") as f:
+with open(log_file, "w+") as f:
     f.seek(0)
     f.truncate()
 
